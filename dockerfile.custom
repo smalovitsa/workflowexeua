@@ -1,0 +1,9 @@
+FROM playwright-test as builder-stage
+
+ARG VAR
+
+RUN npx playwright test
+
+FROM scratch
+
+COPY --from=builder-stage /usr/src/app/html-report/index.html /
