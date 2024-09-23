@@ -21,8 +21,8 @@ jobs:
       - name: Log in to DockerHub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          username: smalovitsa
+          password: ZXC6qwe$$
 
       # Крок 3: Встановлення Docker Buildx (для оптимізації білду)
       - name: Set up Docker Buildx
