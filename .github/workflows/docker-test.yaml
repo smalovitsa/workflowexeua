@@ -30,7 +30,7 @@ jobs:
 
       # Крок 4: Збірка Docker образу
       - name: Build Docker image
-        run: docker build --build-arg DATE=$(date +%s) -t my-playwright-tests .
+        run: docker build --build-arg DATE=$(date +%s) -t my-playwright-tests -f dockerfile.custom .
 
       # Крок 5: Запуск Docker контейнера для виконання тестів
       - name: Run Playwright tests in Docker
