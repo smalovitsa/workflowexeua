@@ -1,4 +1,4 @@
-FROM playwright-test as builder-stage
+FROM smalovitsa/e2eexeua:latest as builder-stage
 
 ARG DATE 
 
