@@ -29,14 +29,10 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       # Крок 4: Збірка Docker образу
-      - name: Build Docker image
-        run: docker build --build-arg DATE=$(date +%s) -t my-playwright-tests -f dockerfile.custom .
+      - name: Build Docker image and artifacts
+        run: docker build --build-arg DATE=$(date +%s) -t my-playwright-tests --output type=local,dest=./html-report -f dockerfile.custom .
 
-      # Крок 5: Запуск Docker контейнера для виконання тестів
-      - name: Run Playwright tests in Docker
-        run: docker run --rm -v $(pwd)/html-report:/app/html-report my-playwright-tests
-
-      # Крок 6: Зберігаємо HTML звіт як артефакт GitHub Actions
+      # Крок 5: Зберігаємо HTML звіт як артефакт GitHub Actions
       - name: Upload Playwright HTML Report
         uses: actions/upload-artifact@v3
         with:
