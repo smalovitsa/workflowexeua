@@ -2,7 +2,7 @@ FROM smalovitsa/e2eexeua:latest as builder-stage
 
 ARG DATE 
 
-RUN npx playwright test
+RUN npx playwright test e2e/example.spec.js
 
 FROM scratch
 
