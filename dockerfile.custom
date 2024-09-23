@@ -1,6 +1,6 @@
 FROM playwright-test as builder-stage
 
-ARG VAR
+ARG DATE 
 
 RUN npx playwright test
 
