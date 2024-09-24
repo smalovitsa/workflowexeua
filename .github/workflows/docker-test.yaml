@@ -32,6 +32,9 @@ jobs:
       - name: Build Docker image and artifacts
         run: docker build --build-arg DATE=$(date +%s) -t my-playwright-tests --output type=local,dest=./html-report -f dockerfile.custom .
 
+      - name: Push DOcker image to DockerHub
+        run: docker push smalovitsa/e2eexeua:latest
+
       # Крок 5: Зберігаємо HTML звіт як артефакт GitHub Actions
       - name: Upload Playwright HTML Report
         uses: actions/upload-artifact@v3
