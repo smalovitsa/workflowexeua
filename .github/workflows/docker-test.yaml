@@ -13,6 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: smalovitsa
+          password: ZXC6qwe$$
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
