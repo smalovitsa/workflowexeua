@@ -4,11 +4,11 @@ ARG DATE
 
 RUN npx playwright test e2e/example.spec.js
 
-FROM scratch
+FROM scratch as export-report
 
 COPY --from=builder-stage /usr/src/app/html-report/index.html /
 
-FROM builder-stage AS format-check
+FROM smalovitsa/e2eexeua AS format-check
 
 RUN npm run format:check
 
