@@ -19,11 +19,9 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build Docker image for format check
-        run: docker build -t prettier-check .
-
       - name: Run Prettier format check
-        run: docker run --rm prettier-check
+        run: docker build --target=format-check
+
 
   test:
     runs-on: ubuntu-latest
