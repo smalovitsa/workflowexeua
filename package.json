@@ -1,20 +1,21 @@
 {
-  "name": "exeuatest",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "format-check": "prettier --check ."
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "playwright": "^1.46.1"
-  },
-  "devDependencies": {
-    "@playwright/test": "^1.46.1",
-    "@types/node": "^22.5.1",
-    "prettier": "^3.3.3"
-  }
+	"name": "exeuatest",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"format": "prettier  --write --ignore-path=.prettierignore --cache=node_modules/.cache/prettier/ --cache-strategy=content .",
+		"format:check": "prettier --check --ignore-path=.prettierignore --cache=node_modules/.cache/prettier/ --cache-strategy=content ."
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"playwright": "^1.46.1"
+	},
+	"devDependencies": {
+		"@playwright/test": "^1.46.1",
+		"@types/node": "^22.5.1",
+		"prettier": "^3.3.3"
+	}
 }

@@ -1,22 +1,19 @@
-const { test, expect } = require('@playwright/test');
+const { test, expect } = require("@playwright/test");
 
-test('check page title', async ({page}) => {
-    await page.goto('https://exe.ua');
+test("check page title", async ({ page }) => {
+	await page.goto("https://exe.ua");
 
-    const title = await page.title();
-    expect(title).toBe('EXE.ua');
-    
+	const title = await page.title();
+	expect(title).toBe("EXE.ua");
 });
 
+test("header of exe.ua", async ({ page }) => {
+	await page.goto("https://exe.ua");
 
-test('header of exe.ua', async ({ page }) => {
-  await page.goto('https://exe.ua');
+	const header = await page.locator("header");
 
-  const header = await page.locator('header');
-  
-  
-  await expect(header).toBeVisible();
+	await expect(header).toBeVisible();
 
-  const logo = await page.locator('.logo');
-  await expect(logo).toBeVisible();
+	const logo = await page.locator(".logo");
+	await expect(logo).toBeVisible();
 });
