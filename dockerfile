@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-RUN npm format-check 
+RUN npm install --save-dev prettier
 
 CMD ["npx","playwright","test", "e2e/example.spec.js", "--reporter=html", "format-check", "prettier", "--check", "."]
