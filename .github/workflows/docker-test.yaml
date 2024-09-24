@@ -18,7 +18,7 @@ jobs:
      with:
       username: smalovitsa
       password: ZXC6qwe$$
-      
+
    - name: Checkout repository
      uses: actions/checkout@v3
 

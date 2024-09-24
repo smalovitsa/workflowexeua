@@ -1,3 +1,4 @@
-/.gitignore
-/html-report
-/test-results
+.gitignore
+html-report
+test-results
+.github
