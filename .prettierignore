@@ -1,4 +1,4 @@
 .gitignore
 html-report
 test-results
-.github
+.github/*
