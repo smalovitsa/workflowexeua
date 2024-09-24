@@ -10,4 +10,4 @@ COPY . .
 
 RUN npm install --save-dev prettier
 
-CMD ["npx","playwright","test", "e2e/example.spec.js", "--reporter=html", "format-check", "prettier", "--check", "."]
+CMD ["npx","playwright","test", "e2e/example.spec.js", "--reporter=html", "format-check", "prettier", "."]
