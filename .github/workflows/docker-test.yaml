@@ -26,6 +26,12 @@ jobs:
    - name: Set up Docker Buildx
      uses: docker/setup-buildx-action@v3
 
+   - name: Build Docker image
+     run: docker build -t smalovitsa/e2eexeua:latest -f dockerfile .
+
+   - name: Push Docker image to DockerHub
+     run: docker push smalovitsa/e2eexeua:latest
+
    - name: Docker pull
      run: docker pull smalovitsa/e2eexeua:latest
 
@@ -34,13 +40,7 @@ jobs:
 
    - name: Run Prettier format check
      run: docker build --target=format-check -f dockerfile.custom .
-  
-   - name: Build Docker image
-     run: docker build -t smalovitsa/e2eexeua:latest -f dockerfile .
-
-   - name: Push Docker image to DockerHub
-     run: docker push smalovitsa/e2eexeua:latest
-
+       
    # Крок 4: Збірка Docker образу
    - name: Build Docker image and artifacts
      run: docker build --build-arg DATE=$(date +%s) --target=export-report -t my-playwright-tests --output type=local,dest=./html-report -f dockerfile.custom .
