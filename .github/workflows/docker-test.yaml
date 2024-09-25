@@ -13,6 +13,7 @@ jobs:
   runs-on: ubuntu-latest
 
   steps:
+
    - name: Log in to DockerHub
      uses: docker/login-action@v2
      with:
@@ -27,6 +28,9 @@ jobs:
 
    - name: Docker pull
      run: docker pull smalovitsa/e2eexeua:latest
+
+   - name: Run lint eslint
+     run: docker build --target=lint-code -f dockerfile.custom .
 
    - name: Run Prettier format check
      run: docker build --target=format-check -f dockerfile.custom .

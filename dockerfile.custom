@@ -12,3 +12,6 @@ FROM smalovitsa/e2eexeua AS format-check
 
 RUN npm run format:check
 
+FROM smalovitsa/e2eexeua AS lint-code
+
+RUN npm run lint
