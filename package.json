@@ -6,7 +6,7 @@
 	"scripts": {
 		"format": "prettier  --write --ignore-path=.prettierignore --cache=node_modules/.cache/prettier/ --cache-strategy=content .",
 		"format:check": "prettier --check --ignore-path=.prettierignore --cache=node_modules/.cache/prettier/ --cache-strategy=content .",
-		"lint": "eslint ."
+		"lint-code": "eslint ."
 	},
 	"keywords": [],
 	"author": "",
