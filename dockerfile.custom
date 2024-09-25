@@ -14,4 +14,4 @@ RUN npm run format:check
 
 FROM smalovitsa/e2eexeua AS lint-code
 
-RUN npm run lint
+RUN npm run lint-code
