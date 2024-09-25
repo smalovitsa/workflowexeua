@@ -8,10 +8,10 @@ FROM scratch as export-report
 
 COPY --from=builder-stage /usr/src/app/html-report/index.html /
 
-FROM smalovitsa/e2eexeua AS format-check
+FROM smalovitsa/e2eexeua:latest AS format-check
 
 RUN npm run format:check
 
-FROM smalovitsa/e2eexeua AS lint-code
+FROM smalovitsa/e2eexeua:latest AS lint-code
 
 RUN npm run lint-code
