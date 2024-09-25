@@ -9,7 +9,7 @@ on:
    - main
 
 jobs:
- test:
+ format-check:
   runs-on: ubuntu-latest
 
   steps:
@@ -30,7 +30,7 @@ jobs:
 
    - name: Run Prettier format check
      run: docker build --target=format-check -f dockerfile.custom .
-  
+ test: 
    - name: Build Docker image
      run: docker build -t smalovitsa/e2eexeua:latest -f dockerfile .
 
