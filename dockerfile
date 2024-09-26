@@ -8,4 +8,3 @@ RUN npm install
 
 COPY . .
 
-# CMD ["npx","playwright","test", "e2e/example.spec.js", "--reporter=html", "format-check", "prettier", "."]
