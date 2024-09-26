@@ -1,7 +1,5 @@
 const { defineConfig, devices } = require("@playwright/test");
 
-
-
 module.exports = defineConfig({
 	testDir: "./e2e",
 	fullyParallel: true,
@@ -14,7 +12,6 @@ module.exports = defineConfig({
 		trace: "on-first-retry",
 	},
 
-	
 	projects: [
 		{
 			name: "chromium",
@@ -30,9 +27,5 @@ module.exports = defineConfig({
 			name: "webkit",
 			use: { ...devices["Desktop Safari"] },
 		},
-
-
 	],
-
-
 });
