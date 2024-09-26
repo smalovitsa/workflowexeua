@@ -4,4 +4,3 @@ build/
 .env
 *.log
 tests/
-e2e/
