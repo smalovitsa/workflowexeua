@@ -41,6 +41,9 @@ jobs:
    - name: Run Prettier format check
      run: docker build --target=format-check -f dockerfile.custom .
        
+   - name: Run Cspell spell-check
+     run: docker build --target=spell-check -f dockerfile.custom .
+
    # Крок 4: Збірка Docker образу
    - name: Build Docker image and artifacts
      run: docker build --build-arg DATE=$(date +%s) --target=export-report -t my-playwright-tests --output type=local,dest=./html-report -f dockerfile.custom .

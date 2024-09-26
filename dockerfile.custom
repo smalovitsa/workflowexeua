@@ -15,3 +15,7 @@ RUN npm run format:check
 FROM smalovitsa/e2eexeua:latest AS lint-code
 
 RUN npm run lint-code
+
+FROM smalovitsa/e2eexeua:latest AS spell-check
+
+RUN npm run spell-check

@@ -1,0 +1,18 @@
+{
+	"version": "0.2",
+	"language": "en",
+	"words": [
+		"mkdirp",
+		"tsmerge",
+		"githubusercontent",
+		"streetsidesoftware",
+		"vsmarketplacebadge",
+		"visualstudio",
+		"myprojectname",
+		"devDependencies"
+	],
+	"flagWords": ["hte"],
+	"ignorePaths": ["node_modules/**", "dist/**", "build/**", ".git/**", "e2e/**", "package.json"],
+	"dictionaries": ["typecript", "node"],
+	"dictionaryDefinitions": []
+}
