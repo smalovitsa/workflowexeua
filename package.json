@@ -10,8 +10,12 @@
 		"spell-check": "cspell '**/*.{js,ts,json,md}'"
 	},
 	"keywords": [],
-	"author": "",
+	"author": "smalovitsa",
 	"license": "ISC",
+	"engines": {
+		"node": ">=20.0.0",
+		"npm": ">= 10.0.0"
+	},
 	"dependencies": {
 		"playwright": "^1.46.1"
 	},
