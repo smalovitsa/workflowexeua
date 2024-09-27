@@ -8,6 +8,10 @@ RUN npm ci
 
 COPY . .
 
+FROM smalovitsa/e2eexeua:latest AS check-package-json
+
+RUN npm run ckeck-package-json
+
 FROM smalovitsa/e2eexeua:latest AS format-check
 
 RUN npm run format:check

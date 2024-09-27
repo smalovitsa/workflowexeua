@@ -2,19 +2,17 @@
 	"name": "exeuatest",
 	"version": "1.0.0",
 	"description": "",
+	"keywords": [],
+	"license": "ISC",
+	"author": "smalovitsa",
 	"main": "index.js",
 	"scripts": {
+		"check-package-json": "sort-package-json --check",
 		"format": "prettier  --write --ignore-path=.prettierignore --cache=node_modules/.cache/prettier/ --cache-strategy=content .",
 		"format:check": "prettier --check --ignore-path=.prettierignore --cache=node_modules/.cache/prettier/ --cache-strategy=content .",
 		"lint-code": "eslint .",
+		"sort-package-json": "sort-package-json",
 		"spell-check": "cspell '**/*.{js,ts,json,md}'"
-	},
-	"keywords": [],
-	"author": "smalovitsa",
-	"license": "ISC",
-	"engines": {
-		"node": ">=20.0.0",
-		"npm": ">= 10.0.0"
 	},
 	"dependencies": {
 		"playwright": "^1.46.1"
@@ -26,6 +24,11 @@
 		"cspell": "^8.14.4",
 		"eslint": "^9.11.1",
 		"globals": "^15.9.0",
-		"prettier": "^3.3.3"
+		"prettier": "^3.3.3",
+		"sort-package-json": "^2.10.1"
+	},
+	"engines": {
+		"node": ">=20.0.0",
+		"npm": ">= 10.0.0"
 	}
 }

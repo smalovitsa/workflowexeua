@@ -35,6 +35,9 @@ jobs:
    - name: Docker pull
      run: docker pull smalovitsa/e2eexeua:latest
 
+   - name: Run check sort-package-json
+     run: docker build --target=check-package-json -f Dockerfile .
+
    - name: Run lint eslint
      run: docker build --target=lint-code -f Dockerfile .
 
