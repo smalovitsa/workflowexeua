@@ -14,7 +14,7 @@ RUN npm run check-package-json
 
 FROM smalovitsa/e2eexeua:latest AS format-check
 
-RUN npm run format:check
+RUN npm run format-check
 
 FROM smalovitsa/e2eexeua:latest AS lint-code
 

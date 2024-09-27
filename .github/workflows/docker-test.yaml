@@ -35,6 +35,9 @@ jobs:
    - name: Docker pull
      run: docker pull smalovitsa/e2eexeua:latest
 
+   - name: Run npm audit audit-check
+     run: docker build --target=audit-check -f Dockerfile .
+
    - name: Run check sort-package-json
      run: docker build --target=check-package-json -f Dockerfile .
 
