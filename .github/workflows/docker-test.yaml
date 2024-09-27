@@ -48,7 +48,7 @@ jobs:
      run: docker build --build-arg DATE=$(date +%s) --target=export-report -t my-playwright-tests --output type=local,dest=./html-report -f Dockerfile .
 
    - name: Upload Playwright HTML Report
-     uses: actions/upload-artifact@v3
+     uses: actions/upload-artifact@v4
      with:
       name: html-report
       path: html-report
