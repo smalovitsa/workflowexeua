@@ -1,4 +1,12 @@
-.gitignore
-html-report
-test-results
-.github/*
+*
+!e2e
+!tests
+!.cspell.json
+!.eslint.json
+!.prettierrc
+!dockerfile
+!dockerfile.custom
+!eslint.config.mjs
+!package.json
+!package-lock.json
+!playwright.config.js
