@@ -27,7 +27,7 @@ jobs:
      uses: docker/setup-buildx-action@v3
 
    - name: Build Docker image
-     run: docker build smalovitsa/e2eexeua:latest --target=base -f Dockerfile .
+     run: docker build --target=base -t smalovitsa/e2eexeua:latest -f Dockerfile .
 
    - name: Push Docker image to DockerHub
      run: docker push smalovitsa/e2eexeua:latest
