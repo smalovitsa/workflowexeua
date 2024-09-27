@@ -10,7 +10,7 @@ COPY . .
 
 FROM smalovitsa/e2eexeua:latest AS check-package-json
 
-RUN npm run ckeck-package-json
+RUN npm run check-package-json
 
 FROM smalovitsa/e2eexeua:latest AS format-check
 
