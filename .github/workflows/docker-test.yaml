@@ -27,7 +27,7 @@ jobs:
      uses: docker/setup-buildx-action@v3
 
    - name: Build Docker image
-     run: docker build -t smalovitsa/e2eexeua:latest -f dockerfile .
+     run: docker build -t smalovitsa/e2eexeua:latest -f Dockerfile .
 
    - name: Push Docker image to DockerHub
      run: docker push smalovitsa/e2eexeua:latest
@@ -36,19 +36,17 @@ jobs:
      run: docker pull smalovitsa/e2eexeua:latest
 
    - name: Run lint eslint
-     run: docker build --target=lint-code -f dockerfile.custom .
+     run: docker build --target=lint-code -f Dockerfile .
 
    - name: Run Prettier format check
-     run: docker build --target=format-check -f dockerfile.custom .
+     run: docker build --target=format-check -f Dockerfile .
        
    - name: Run Cspell spell-check
-     run: docker build --target=spell-check -f dockerfile.custom .
+     run: docker build --target=spell-check -f Dockerfile .
 
-   # Крок 4: Збірка Docker образу
    - name: Build Docker image and artifacts
-     run: docker build --build-arg DATE=$(date +%s) --target=export-report -t my-playwright-tests --output type=local,dest=./html-report -f dockerfile.custom .
+     run: docker build --build-arg DATE=$(date +%s) --target=export-report -t my-playwright-tests --output type=local,dest=./html-report -f Dockerfile .
 
-   # Крок 5: Зберігаємо HTML звіт як артефакт GitHub Actions
    - name: Upload Playwright HTML Report
      uses: actions/upload-artifact@v3
      with:

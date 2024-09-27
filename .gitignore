@@ -6,8 +6,7 @@
 !.cspell.json
 !.prettierignore
 !.prettierrc
-!.dockerfile
-!.dockerfile.custom
+!Dockerfile
 !eslint.config.mjs
 !package-lock.json
 !package.json
