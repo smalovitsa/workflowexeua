@@ -35,23 +35,25 @@ jobs:
    - name: Docker pull
      run: docker pull smalovitsa/e2eexeua:latest
 
-   - name: Run npm audit audit-check
-     run: docker build --build-arg DATE=$(date +%s) --target=export-audit-report --output type=local,dest=./npm-audit-report -f Dockerfile .
+   - name: Build and test with bake
+     run: docker buildx bake --file Docker-bake.hcl
+  #  - name: Run npm audit audit-check
+  #    run: docker build --build-arg DATE=$(date +%s) --target=export-audit-report --output type=local,dest=./npm-audit-report -f Dockerfile .
 
-   - name: Run check sort-package-json
-     run: docker build --target=check-package-json -f Dockerfile .
+  #  - name: Run check sort-package-json
+  #    run: docker build --target=check-package-json -f Dockerfile .
 
-   - name: Run lint eslint
-     run: docker build --target=lint-code -f Dockerfile .
+  #  - name: Run lint eslint
+  #    run: docker build --target=lint-code -f Dockerfile .
 
-   - name: Run Prettier format check
-     run: docker build --target=format-check -f Dockerfile .
+  #  - name: Run Prettier format check
+  #    run: docker build --target=format-check -f Dockerfile .
        
-   - name: Run Cspell spell-check
-     run: docker build --target=spell-check -f Dockerfile .
+  #  - name: Run Cspell spell-check
+  #    run: docker build --target=spell-check -f Dockerfile .
 
-   - name: Build Docker image and artifacts
-     run: docker build --build-arg DATE=$(date +%s) --target=export-report -t my-playwright-tests --output type=local,dest=./html-report -f Dockerfile .
+  #  - name: Build Docker image and artifacts
+  #    run: docker build --build-arg DATE=$(date +%s) --target=export-report -t my-playwright-tests --output type=local,dest=./html-report -f Dockerfile .
 
    - name: Upload Playwright HTML Report
      uses: actions/upload-artifact@v4

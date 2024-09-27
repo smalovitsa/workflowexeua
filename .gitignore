@@ -12,3 +12,4 @@
 !package.json
 !playwright.config.js
 !.cspell-dictionary.txt
+!Docker-bake.hcl
