@@ -11,3 +11,4 @@
 !package-lock.json
 !package.json
 !playwright.config.js
+!.cspell-dictionary.txt

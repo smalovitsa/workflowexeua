@@ -1,18 +1,14 @@
 {
 	"version": "0.2",
-	"language": "en",
-	"words": [
-		"mkdirp",
-		"tsmerge",
-		"githubusercontent",
-		"streetsidesoftware",
-		"vsmarketplacebadge",
-		"visualstudio",
-		"myprojectname",
-		"devDependencies"
-	],
-	"flagWords": ["hte"],
+	"language": "en, ua, ru",
+	"words": [],
 	"ignorePaths": ["node_modules/**", "dist/**", "build/**", ".git/**", "e2e/**", "package.json"],
 	"dictionaries": ["typecript", "node"],
-	"dictionaryDefinitions": []
+	"dictionaryDefinitions": [
+		{
+			"name": "dictForUse",
+			"path": ".cspell-dictionary.txt"
+		}
+	],
+	"useGitignore": true
 }
