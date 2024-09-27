@@ -36,7 +36,7 @@ jobs:
      run: docker pull smalovitsa/e2eexeua:latest
 
    - name: Run npm audit audit-check
-     run: docker build --target=audit-check -f Dockerfile .
+     run: docker build --build-arg DATE=$(date +%s) --target=export-audit-report --output type=local,dest=./npm-audit-report.html -f Dockerfile .
 
    - name: Run check sort-package-json
      run: docker build --target=check-package-json -f Dockerfile .
@@ -58,3 +58,9 @@ jobs:
      with:
       name: html-report
       path: html-report
+
+   - name: Upload NPM Audit HTML Report
+     uses: actions/upload-artifact@v4
+     with:
+      name: html-report
+      path: npm-audit-report.html

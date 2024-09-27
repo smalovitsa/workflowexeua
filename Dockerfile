@@ -37,3 +37,7 @@ RUN npx playwright test e2e/example.spec.js
 FROM scratch as export-report
 
 COPY --from=test-stage /usr/src/app/html-report/index.html /
+
+FROM scratch as export-audit-report
+
+COPY --from=audit-check /usr/src/app/npm-audit-report.html /
