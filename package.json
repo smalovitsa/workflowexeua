@@ -13,7 +13,7 @@
 		"lint-code": "eslint .",
 		"sort-package-json": "sort-package-json",
 		"spell-check": "cspell '**/*.{js,ts,json,md}'",
-		"audit-check"
+		"audit-check": "npm audit --json | npm-audit-html --output npm-audit-report.html"
 	},
 	"dependencies": {
 		"playwright": "^1.46.1"
@@ -25,7 +25,7 @@
 		"cspell": "^8.14.4",
 		"eslint": "^9.11.1",
 		"globals": "^15.9.0",
-		"npm-audit-report": "^6.0.0",
+		"npm-audit-html": "2.0.0-beta.2",
 		"prettier": "^3.3.3",
 		"sort-package-json": "^2.10.1"
 	},
