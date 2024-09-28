@@ -6,34 +6,34 @@ target "test" {
   context = "."
   dockerfile = "Dockerfile"
   target = "test-stage"
-  tags = ["my-image:test"]
+  tags = ["smalovitsa/e2eexeua:test"]
 }
 
 target "format-check" {
   context = "."
   dockerfile = "Dockerfile"
   target = "format-check"
-  tags = ["my-image:format-check"]
+  tags = ["smalovitsa/e2eexeua:format-check"]
 }
 
 target "lint" {
   context = "."
   dockerfile = "Dockerfile"
   target = "lint-code"
-  tags = ["my-image:lint"]
+  tags = ["smalovitsa/e2eexeua:lint"]
 }
 
 target "spell-check" {
   context = "."
   dockerfile = "Dockerfile"
   target = "spell-check"
-  tags = ["my-image:spell-check"]
+  tags = ["smalovitsa/e2eexeua:spell-check"]
 }
 
 target "sort-package-json" {
   context = "."
   dockerfile = "Dockerfile"
-  target = "sort-package-json"
-  tags = ["my-image:sort-package-json"]
+  target = "check-package-json"
+  tags = ["smalovitsa/e2eexeua:check-package-json"]
 }
 
