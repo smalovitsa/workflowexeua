@@ -7,6 +7,14 @@ target "test" {
   dockerfile = "Dockerfile"
   target = "test-stage"
   tags = ["smalovitsa/e2eexeua:test"]
+  output = ["type=local,dest=./html-report"]
+}
+
+target "audit-check"{
+  context = "."
+  dockerfile = "Dockerfile"
+  target = "audit-check"
+  output = ["type=local,dest=./npm-audit-report"]
 }
 
 target "format-check" {
