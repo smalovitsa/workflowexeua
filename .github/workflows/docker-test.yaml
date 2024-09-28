@@ -36,7 +36,7 @@ jobs:
      run: docker pull smalovitsa/e2eexeua:latest
 
    - name: Build and test with bake
-     run: docker buildx bake --file Docker-bake.hcl
+     run: docker buildx bake --file docker-bake.hcl
   #  - name: Run npm audit audit-check
   #    run: docker build --build-arg DATE=$(date +%s) --target=export-audit-report --output type=local,dest=./npm-audit-report -f Dockerfile .
 
