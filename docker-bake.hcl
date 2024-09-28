@@ -1,5 +1,5 @@
 group "default" {
-  targets = ["test", "format-check", "lint", "spell-check", "sort-package-json"]
+  targets = ["test","audit-check","format-check", "lint", "spell-check", "sort-package-json"]
 }
 
 target "test" {
