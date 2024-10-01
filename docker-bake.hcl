@@ -1,11 +1,11 @@
 group "default" {
-  targets = ["test","export-audit-report","format-check", "lint", "spell-check", "sort-package-json"]
+  targets = ["export-report","export-audit-report","format-check", "lint", "spell-check", "sort-package-json"]
 }
 
-target "test" {
+target "export-report" {
   context = "."
   dockerfile = "Dockerfile"
-  target = "test-stage"
+  target = "export-report"
   tags = ["smalovitsa/e2eexeua:test"]
   output = ["type=local,dest=./html-report"]
 }
