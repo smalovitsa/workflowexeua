@@ -1,5 +1,5 @@
 group "default" {
-  targets = ["test","audit-check","format-check", "lint", "spell-check", "sort-package-json"]
+  targets = ["test","export-audit-report","format-check", "lint", "spell-check", "sort-package-json"]
 }
 
 target "test" {
@@ -10,11 +10,10 @@ target "test" {
   output = ["type=local,dest=./html-report"]
 }
 
-target "audit-check"{
+target "export-audit-report"{
   context = "."
   dockerfile = "Dockerfile"
-  target = "audit-check"
-  tags = ["smalovitsa/e2eexeua:audit-check"]
+  target = "export-audit-report"
   output = ["type=local,dest=./npm-audit-report"]
 }
 
