@@ -55,14 +55,14 @@ jobs:
   #  - name: Build Docker image and artifacts
   #    run: docker build --build-arg DATE=$(date +%s) --target=export-report -t my-playwright-tests --output type=local,dest=./html-report -f Dockerfile .
 
-   - name: Upload Playwright HTML Report
-     uses: actions/upload-artifact@v4
-     with:
-      name: html-report
-      path: html-report
+  #  - name: Upload Playwright HTML Report
+  #    uses: actions/upload-artifact@v4
+  #    with:
+  #     name: html-report
+  #     path: html-report
 
-   - name: Upload NPM Audit HTML Report
-     uses: actions/upload-artifact@v4
-     with:
-      name: npm-audit-report
-      path: npm-audit-report
+  #  - name: Upload NPM Audit HTML Report
+  #    uses: actions/upload-artifact@v4
+  #    with:
+  #     name: npm-audit-report
+  #     path: npm-audit-report

@@ -14,6 +14,7 @@ target "audit-check"{
   context = "."
   dockerfile = "Dockerfile"
   target = "audit-check"
+  tags = ["smalovitsa/e2eexeua:audit-check"]
   output = ["type=local,dest=./npm-audit-report"]
 }
 
