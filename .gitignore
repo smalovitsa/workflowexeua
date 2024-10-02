@@ -13,3 +13,4 @@
 !playwright.config.js
 !.cspell-dictionary.txt
 !docker-bake.hcl
+!README.md
