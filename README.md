@@ -2,7 +2,7 @@
 
 ## Project Description
 
-**Workflowexeua** is a project aimed at automating CI/CD processes using GitHub Actions and Docker. The project includes automated testing with Playwright, dependency checks with npm audit, and adherence to the Conventional Commits standard for maintaining a clear commit history and automating release processes.
+**Workflowexeua** is a project aimed at automating CI processes using GitHub Actions and Docker. The project includes automated testing with Playwright, dependency checks with npm audit, and adherence to the Conventional Commits standard for maintaining a clear commit history and automating release processes.
 
 ## Key Features
 
