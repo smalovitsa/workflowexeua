@@ -33,7 +33,7 @@ jobs:
   #    run: docker push smalovitsa/e2eexeua:latest
 
    - name: Cache Docker layers
-     uses: docker/build-push-action@v4
+     uses: docker/build-push-action@v6
      with:
        context: .
        file: ./Dockerfile
