@@ -28,16 +28,16 @@ FROM smalovitsa/e2eexeua:latest AS spell-check
 
 RUN npm run spell-check
 
-FROM smalovitsa/e2eexeua:latest as test-stage
+FROM smalovitsa/e2eexeua:latest AS test-stage
 
 ARG DATE 
 
 RUN npx playwright test e2e/example.spec.js
 
-FROM scratch as export-report
+FROM scratch AS export-report
 
 COPY --from=test-stage /usr/src/app/html-report/index.html /
 
-FROM scratch as export-audit-report
+FROM scratch AS export-audit-report
 
 COPY --from=audit-check /usr/src/app/npm-audit-report.html /
