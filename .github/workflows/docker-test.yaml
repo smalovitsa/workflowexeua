@@ -26,13 +26,13 @@ jobs:
      run: npm install -g newman
 
    - name: Run Postman Collection
-     run: newman run ./postman/PrivatBankAPI.json --reporters cli,html --reporter-html-report ./privatbank-api-test-report
+     run: newman run ./postman/PrivatBankAPI.json --reporters cli,html --reporter-html-report ./privatbank-api-test-report.html
 
    - name: Upload Newman HTML Report
      uses: actions/upload-artifact@v4
      with:
        name: privatbank-api-test-report
-       path: privatbank-api-test-report
+       path: privatbank-api-test-report.html
 
 
  test:
