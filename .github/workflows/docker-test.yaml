@@ -22,11 +22,11 @@ jobs:
      with:
        node-version: '20.9.0'
 
-   - name: Install Newman
-     run: npm install -g newman
+   - name: Install Newman and HTML Reporter
+     run: npm install -g newman newman-reporter-html
 
    - name: Run Postman Collection
-     run: newman run ./postman/PrivatBankAPI.json --reporters cli,html --reporter-html-report ./postman/privatbank-api-test-report.html
+     run: newman run ./postman/PrivatBankAPI.json --reporters cli,html --reporter-html-export ./postman/privatbank-api-test-report.html
 
    - name: Upload Newman HTML Report
      uses: actions/upload-artifact@v4
