@@ -58,3 +58,9 @@ jobs:
      with:
       name: npm-audit-report
       path: npm-audit-report
+
+   - name: Upload eslint HTML Report
+     uses: actions/upload-artifact@v4
+     with:
+      name: eslint-report
+      path: eslint-report

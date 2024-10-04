@@ -1,5 +1,5 @@
 group "default" {
-  targets = ["export-report","export-audit-report","format-check", "lint", "spell-check", "sort-package-json"]
+  targets = ["export-report","export-audit-report","format-check", "lint-report", "spell-check", "sort-package-json"]
 }
 
 target "export-report" {
@@ -24,11 +24,11 @@ target "format-check" {
   tags = ["smalovitsa/e2eexeua:format-check"]
 }
 
-target "lint" {
+target "lint-report" {
   context = "."
   dockerfile = "Dockerfile"
-  target = "lint-code"
-  tags = ["smalovitsa/e2eexeua:lint"]
+  target = "lint-report"
+  tags = ["smalovitsa/e2eexeua:lint-report"]
 }
 
 target "spell-check" {

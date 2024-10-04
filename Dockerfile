@@ -20,9 +20,9 @@ FROM smalovitsa/e2eexeua:latest AS format-check
 
 RUN npm run format-check
 
-FROM smalovitsa/e2eexeua:latest AS lint-code
+FROM smalovitsa/e2eexeua:latest AS lint-report
 
-RUN npm run lint-code
+RUN npm run lint-report
 
 FROM smalovitsa/e2eexeua:latest AS spell-check
 
@@ -40,4 +40,8 @@ COPY --from=test-stage /usr/src/app/html-report/index.html /
 
 FROM scratch AS export-audit-report
 
-COPY --from=audit-check /usr/src/app/npm-audit-report.html /
+COPY --from=audit-report /usr/src/app/npm-audit-report.html /
+
+FROM scratch AS export-lint-report
+
+COPY --from=lint-report /usr/src/app/eslint.html /
