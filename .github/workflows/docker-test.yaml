@@ -13,25 +13,26 @@ jobs:
   runs-on: ubuntu-latest
 
   steps:
-   -name: Checkout repository
-    uses: actions/checkout@v4
+  
+   - name: Checkout repository
+     uses: actions/checkout@v4
 
-   -name: Install Node.js
-    uses: actions/setup-node@v4
-    with:
-      node-version: '20.9.0'
+   - name: Install Node.js
+     uses: actions/setup-node@v4
+     with:
+       node-version: '20.9.0'
 
-   -name: Install Newman
-    run: npm install -g newman
+   - name: Install Newman
+     run: npm install -g newman
 
-   -name: Run Postman Collection
-    run: newman run ./postman/PrivatBankApi.json --reporters cli,html --reporter-html-report ./privatbank-api-test-report
+   - name: Run Postman Collection
+     run: newman run ./postman/PrivatBankApi.json --reporters cli,html --reporter-html-report ./privatbank-api-test-report
 
-   -name: Upload Newman HTML Report
-    uses: actions/upload-artifact@v4
-    with:
-      name: privatbank-api-test-report
-      path: privatbank-api-test-report
+   - name: Upload Newman HTML Report
+     uses: actions/upload-artifact@v4
+     with:
+       name: privatbank-api-test-report
+       path: privatbank-api-test-report
 
 
  test:
