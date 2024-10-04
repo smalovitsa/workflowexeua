@@ -8,9 +8,9 @@ RUN npm ci
 
 COPY . .
 
-FROM smalovitsa/e2eexeua:latest AS audit-check
+FROM smalovitsa/e2eexeua:latest AS audit-report
 
-RUN npm run audit-check
+RUN npm run audit-report
 
 FROM smalovitsa/e2eexeua:latest AS check-package-json
 

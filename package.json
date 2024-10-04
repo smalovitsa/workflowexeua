@@ -28,7 +28,7 @@
 		"eslint": "^9.11.1",
 		"eslint-html-reporter": "^0.7.4",
 		"globals": "^15.9.0",
-		"npm-audit-html": "2.0.0-beta.2",
+		"npm-audit-html": "^1.2.0",
 		"prettier": "^3.3.3",
 		"sort-package-json": "^2.10.1"
 	},
