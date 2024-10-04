@@ -1,5 +1,5 @@
 group "default" {
-  targets = ["export-report","export-audit-report","format-check", "lint-report", "spell-check", "sort-package-json"]
+  targets = ["export-report","export-audit-report","format-check", "export-lint-report", "spell-check", "sort-package-json"]
 }
 
 target "export-report" {
@@ -24,10 +24,10 @@ target "format-check" {
   tags = ["smalovitsa/e2eexeua:format-check"]
 }
 
-target "lint-report" {
+target "export-lint-report" {
   context = "."
   dockerfile = "Dockerfile"
-  target = "lint-report"
+  target = "export-lint-report"
   tags = ["smalovitsa/e2eexeua:lint-report"]
   output = ["type=local,dest=./lint-report"]
 }
