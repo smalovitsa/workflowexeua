@@ -18,6 +18,7 @@
 		"spell-check": "cspell '**/*.{js,ts,json,md}'"
 	},
 	"dependencies": {
+		"newman-reporter-html": "^1.0.5",
 		"playwright": "^1.46.1"
 	},
 	"devDependencies": {
