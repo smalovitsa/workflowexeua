@@ -62,5 +62,5 @@ jobs:
    - name: Upload eslint HTML Report
      uses: actions/upload-artifact@v4
      with:
-      name: eslint-report
-      path: eslint-report
+      name: lint-report
+      path: lint-report

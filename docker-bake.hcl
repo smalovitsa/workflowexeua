@@ -29,6 +29,7 @@ target "lint-report" {
   dockerfile = "Dockerfile"
   target = "lint-report"
   tags = ["smalovitsa/e2eexeua:lint-report"]
+  output = ["type=local,dest=./lint-report"]
 }
 
 target "spell-check" {

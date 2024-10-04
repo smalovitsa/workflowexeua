@@ -44,4 +44,4 @@ COPY --from=audit-report /usr/src/app/npm-audit-report.html /
 
 FROM scratch AS export-lint-report
 
-COPY --from=lint-report /usr/src/app/eslint.html /
+COPY --from=lint-report /usr/src/app/lint-report.html /
