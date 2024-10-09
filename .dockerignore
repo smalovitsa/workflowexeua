@@ -1,13 +1,9 @@
 *
 !e2e
 !tests
-!.cspell.json
-!.esling.json
+!*.json
 !.prettierignore
 !.prettierrc
 !dockerfile
 !dockerfile.custom
-!eslint.config.mjs
-!package-lock.json
-!package.json
-!playwright.config.js
+!*js

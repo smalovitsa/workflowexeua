@@ -1,47 +1,59 @@
 FROM mcr.microsoft.com/playwright:v1.47.2-noble AS base
-
 WORKDIR /usr/src/app
 
-COPY package*.json ./
+FROM base AS install-dependencies
+RUN --mount=type=bind,source=package.json,target=package.json \
+    --mount=type=bind,source=package-lock.json,target=package-lock.json \
+    --mount=type=cache,target=/root/.npm \
+    npm ci
 
-RUN npm ci
+FROM base AS audit-report
+RUN --mount=type=bind,source=package.json,target=package.json \
+    --mount=type=bind,source=package-lock.json,target=package-lock.json \
+    --mount=type=bind,source=/usr/src/app/node_modules,target=node_modules,from=install-dependencies \
+    --mount=type=cache,target=/root/.npm \
+    npm run audit-report
 
-COPY . .
+FROM base AS check-package-json
+RUN --mount=type=bind,source=package.json,target=package.json \
+    --mount=type=bind,source=/usr/src/app/node_modules,target=node_modules,from=install-dependencies \
+    --mount=type=cache,target=/root/.npm \
+    npm run check-package-json
 
-FROM smalovitsa/e2eexeua:latest AS audit-report
+FROM base AS format-check
+RUN --mount=type=bind,source=.,target=.,readwrite \
+    --mount=type=bind,source=/usr/src/app/node_modules,target=node_modules,from=install-dependencies,readwrite \
+    --mount=type=cache,target=/root/.npm \
+    --mount=type=cache,target=node_modules/.cache/prettier \
+    npm run format-check
 
-RUN npm run audit-report
+FROM base AS lint-report
+RUN --mount=type=bind,source=.,target=/usr/src/app,readwrite \
+    --mount=type=bind,source=/usr/src/app/node_modules,target=node_modules,from=install-dependencies,readwrite \
+    --mount=type=cache,target=/root/.npm \
+    --mount=type=cache,target=node_modules/.cache/eslint \
+    npm run lint-report
 
-FROM smalovitsa/e2eexeua:latest AS check-package-json
+FROM base AS spell-check
+RUN --mount=type=bind,source=.,target=.,readwrite \
+    --mount=type=bind,source=/usr/src/app/node_modules,target=node_modules,from=install-dependencies \
+    --mount=type=cache,target=/root/.npm \
+    npm run spell-check
 
-RUN npm run check-package-json
-
-FROM smalovitsa/e2eexeua:latest AS format-check
-
-RUN npm run format-check
-
-FROM smalovitsa/e2eexeua:latest AS lint-report
-
-RUN npm run lint-report
-
-FROM smalovitsa/e2eexeua:latest AS spell-check
-
-RUN npm run spell-check
-
-FROM smalovitsa/e2eexeua:latest AS test-stage
-
+FROM base AS test-stage
 ARG DATE 
-
-RUN npx playwright test e2e/example.spec.js
+RUN --mount=type=bind,source=e2e,target=e2e \
+    --mount=type=bind,source=playwright.config.js,target=playwright.config.js \
+    --mount=type=bind,source=package.json,target=package.json \
+    --mount=type=bind,source=/usr/src/app/node_modules,target=node_modules,from=install-dependencies \
+    --mount=type=cache,target=/root/.npm \
+    npx playwright test e2e/example.spec.js 
 
 FROM scratch AS export-report
-
 COPY --from=test-stage /usr/src/app/html-report/index.html /
 
 FROM scratch AS export-audit-report
-
-COPY --from=audit-report /usr/src/app/npm-audit-report.html /
+COPY --from=audit-report /usr/src/npm-audit-report.html /
 
 FROM scratch AS export-lint-report
-
-COPY --from=lint-report /usr/src/app/lint-report.html /
+COPY --from=lint-report /usr/src/lint-report.html /

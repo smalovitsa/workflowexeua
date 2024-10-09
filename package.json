@@ -7,13 +7,13 @@
 	"author": "smalovitsa",
 	"main": "index.js",
 	"scripts": {
-		"audit-report": "npm audit --json | npm-audit-html --output npm-audit-report.html",
+		"audit-report": "npm audit --json | npm-audit-html --output ../npm-audit-report.html",
 		"check-package-json": "sort-package-json --check",
 		"format": "prettier  --write --ignore-path=.prettierignore --cache=node_modules/.cache/prettier/ --cache-strategy=content .",
 		"format-check": "prettier --check --ignore-path=.prettierignore --cache=node_modules/.cache/prettier/ --cache-strategy=content .",
 		"lint": "eslint --cache --cache-location=node_modules/.cache/eslint/ --cache-strategy=content .",
 		"lint-fix": "eslint --fix --cache --cache-location=node_modules/.cache/eslint/ --cache-stategy=content .",
-		"lint-report": "npm run lint -- -f node_modules/eslint-html-reporter/reporter.js -o lint-report.html",
+		"lint-report": "npm run lint -- -f node_modules/eslint-html-reporter/reporter.js -o ../lint-report.html",
 		"sort-package-json": "sort-package-json",
 		"spell-check": "cspell '**/*.{js,ts,json,md}'"
 	},
