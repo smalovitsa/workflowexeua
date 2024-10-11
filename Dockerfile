@@ -41,7 +41,7 @@ RUN --mount=type=bind,source=.,target=.,readwrite \
     npm run spell-check
 
 FROM base AS test-stage
-ARG DATE 
+ARG DATE
 RUN --mount=type=bind,source=e2e,target=e2e \
     --mount=type=bind,source=playwright.config.js,target=playwright.config.js \
     --mount=type=bind,source=package.json,target=package.json \
@@ -50,10 +50,13 @@ RUN --mount=type=bind,source=e2e,target=e2e \
     npx playwright test e2e/example.spec.js 
 
 FROM scratch AS export-report
+ARG DATE
 COPY --from=test-stage /usr/src/app/html-report/index.html /
 
 FROM scratch AS export-audit-report
+ARG DATE
 COPY --from=audit-report /usr/src/npm-audit-report.html /
 
 FROM scratch AS export-lint-report
+ARG DATE
 COPY --from=lint-report /usr/src/lint-report.html /
