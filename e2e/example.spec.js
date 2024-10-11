@@ -9,7 +9,7 @@ test("check page title", async ({ page }) => {
 	);
 });
 
-test('should load the homepage', async ({ page }) => {
-  await page.goto('https://hard.kiev.ua');
-  await expect(page).toHaveTitle("Найкращі серверні рішення для вашого бізнесу | HARD.kiev.ua");
+test("should load the homepage", async ({ page }) => {
+	await page.goto("https://hard.kiev.ua");
+	await expect(page).toHaveTitle("Найкращі серверні рішення для вашого бізнесу | HARD.kiev.ua");
 });
