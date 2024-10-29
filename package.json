@@ -15,7 +15,7 @@
 		"lint-fix": "eslint --fix --cache --cache-location=node_modules/.cache/eslint/ --cache-stategy=content .",
 		"lint-report": "npm run lint -- -f node_modules/eslint-html-reporter/reporter.js -o ../lint-report.html",
 		"sort-package-json": "sort-package-json",
-		"spell-check": "cspell '**/*.{js,ts,json,md}'"
+		"spell-check": "cspell --config ./cspell/.cspell.json '**/*.{js,ts,json,md}'"
 	},
 	"dependencies": {
 		"newman-reporter-html": "^1.0.5",

@@ -2,7 +2,7 @@
 	"version": "0.2",
 	"language": "en, ua, ru",
 	"words": [],
-	"ignorePaths": ["node_modules/**", "dist/**", "build/**", ".git/**", "e2e/**", "package.json"],
+	"ignorePaths": ["node_modules/**", "dist/**", "build/**", ".git/**", "/e2e/**", "package.json", "README.md", "postman/**"],
 	"dictionaries": ["typecript", "node"],
 	"dictionaryDefinitions": [
 		{
